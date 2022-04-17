@@ -24,36 +24,41 @@
 
 ## Use Cases
 
-1. Use Case Name (Should match functional requirement name)
-- **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+1. Item purchase (Rafael)
+- **Pre-condition:**  User has a registered account, and is logged in
 
-- **Trigger:** <can be a list or short description> Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. 
+- **Trigger:** User clicks the “buy item” button next to the item
 
 - **Primary Sequence:**
   
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Et sequi incidunt 
-  3. Quis aute iure reprehenderit
-  4. ... 
-  5. ...
-  6. ...
-  7. ...
-  8. ...
-  9. ...
-  10. <Try to stick to a max of 10 steps>
+  1. Purchase page loads
+  2. Total to pay, with taxes is displayed
+  3. Payment options are displayed (Paypal or credit/debit)
+  4. User completes the purchase 
+  5. Confirmation message appears on the site
 
-- **Primary Postconditions:** <can be a list or short description> 
 
-- **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
+- **Primary Postconditions:** Receipt is sent via email to the user, and viewed
+
+- **Alternate Sequence:**
+Incomplete login: Due to inexistent account, or no login user is prompted to log in/create account before purchasing.
+Incomplete payment: Due to payment error, error message is displayed, and user redirected to the most recently active page.
+
+
+2. User profile (Rafael)
+- **Pre-condition:** User is currently logged in with a complete account
+
+- **Trigger:** Clicking on the user profile
+
+- **Primary Sequence:**
   
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
+  1. User profile information is displayed
+  2. If return button is pressed, user is redirected to most recently active page
+  3. If any edit button is clicked, new information can be edited and saved
 
-- **Alternate Sequence <optional>:** <you can have more than one alternate sequence to describe multiple issues that may arise>
+- **Primary Postconditions:** The user was able to see his account information, and update anything required
+
+- **Alternate Sequence:**
   
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
-2. Use Case Name (Should match functional requirement name)
-   ...
+  Load error: If the profile could not be correctly loaded, error message is displayed
+Profile edit error: If information on the profile could not be edited, error message is displayed
