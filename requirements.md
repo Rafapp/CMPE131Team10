@@ -41,7 +41,7 @@
 - **Primary Postconditions:** Receipt is sent via email to the user, and viewed
 
 - **Alternate Sequence:**
-Incomplete login: Due to inexistent account, or no login user is prompted to log in/create account before purchasing.
+Incomplete login: Due to inexistent account, or no login user is prompted to log in/create account before purchasing.\n
 Incomplete payment: Due to payment error, error message is displayed, and user redirected to the most recently active page.
 
 
@@ -60,5 +60,5 @@ Incomplete payment: Due to payment error, error message is displayed, and user r
 
 - **Alternate Sequence:**
   
-  Load error: If the profile could not be correctly loaded, error message is displayed
+  Load error: If the profile could not be correctly loaded, error message is displayed\n
 Profile edit error: If information on the profile could not be edited, error message is displayed
