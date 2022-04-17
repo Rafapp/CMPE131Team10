@@ -13,10 +13,12 @@
 
 
 ### 2022-04-15 at 13:30
-<meeting template would go here>
-<only fill in template once you had the meeting>
-<see example on the last date>
-<use date format YYYY-MM-DD at HH:MM>
+- Umesh, Mohammad and Rafael attended the meeting
+- Updates: Team decided on all requiremenents, got contact info, and prepared first deliverable
+- Umesh: Helped decide on requirements, prepared github and cloned repo, will work on 2 of the 6 system requirements
+- Rafael: Created github repository, added teammates, created discord server, will work on 2 of the 6 system requirements
+- Mohammad: Helped decide on requirements, prepared github and cloned repo, will work on 2 of the 6 system requirements
+- No pair programming this week.
 
 ### 2022-04-22 at 10:30
 <meeting template would go here>
