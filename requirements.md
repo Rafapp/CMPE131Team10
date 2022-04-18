@@ -2,18 +2,18 @@
 
 ## Functional Requirements
 
-1. Login
-2. Logout
-3. Signup
-4. Profile information page
-5. Cart system
-6. Item purchase
-7. Item database, and search frontend
-8. Item picture
-9. User profile
-10. Item rating
-11. Item seller
-12. Loading screen/splash page
+1. Login (Mohammad)
+2. Logout (Umesh)
+3. Signup (Rafael)
+4. Profile information page (Rafael)
+5. Cart system (Umesh)
+6. Item purchase (Mohammad)
+7. Item database, and search frontend (Rafael)
+8. Item picture (Umesh)
+9. User profile (Umesh)
+10. Item rating (Mohammad)
+11. Item seller (Mohammad)
+12. Loading screen/splash page (Rafael)
 
 ## Non-functional Requirements
 
