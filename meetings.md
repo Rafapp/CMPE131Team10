@@ -13,6 +13,10 @@
 <meeting template would go here>
 <only fill in template once you had the meeting>
 
+### 2022-04-27 at 17:30
+<meeting template would go here>
+<only fill in template once you had the meeting>
+
 ### 2022-04-29 at 10:30
 - Who attended the meeting
 - Team updates (15min or less)
