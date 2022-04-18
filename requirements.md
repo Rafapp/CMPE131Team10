@@ -80,10 +80,10 @@
 	b. Description of item
 	c. Quantity
 	d. Cost per item
-	d. Photo (optional)
+	e. Photo (optional)
   2. Seller enters all the required information.
   3. System stores a new record of the added items.
-  4. Systems puts these items on display for the buyers. 
+  4. Systems puts these items on display for the buyers (on buyer's page). 
   5. Seller logs out of the system.
 
 - **Primary Postconditions:** A record of sellers additions was created. The items were also added on the buyer page so that people can start buying that item. 
