@@ -1,5 +1,3 @@
-## <remove all of the example text and notes in < > such as this one>
-
 ## Functional Requirements
 
 1. Login (Mohammad)
@@ -15,12 +13,16 @@
 11. Item seller (Mohammad)
 12. Loading screen/splash page (Rafael)
 
+
+
 ## Non-functional Requirements
 
-1. Response time for home page under 10 seconds with a 10 mbps network with modern computer
-2. Search time after input for search, must show all items with pictures under 5 seconds with 10mbps network, and modern computer
-3. UI interactive interface with animations and effects using bootstrap (HP)
-4. Official support for google chrome
+1. Response time for home page under 10 seconds with a 10 mbps network with modern computer (Umesh)
+2. Search time after input for search, must show all items with pictures under 5 seconds with 10mbps network, and modern computer (Mohammad)
+3. UI interactive interface with animations and effects using bootstrap (HP) (Rafael)
+4. Official support for google chrome (Umesh)
+
+
 
 ## Use Cases
 
@@ -64,3 +66,30 @@
   Load error: If the profile could not be correctly loaded, error message is displayed
   
   Profile edit error: If information on the profile could not be edited, error message is displayed
+
+
+3. Add item for sale (Umesh)
+- **Pre-condition:** User has to be logged in as a seller. Buyers accounts will not see this option.
+
+- **Trigger:** A click on the “Add Item” button located under “options” on the top-right corner of the page. 
+
+- **Primary Sequence:**
+  
+  1. Systems prompts the seller to enter details regarding the item. Seller has to give:
+	a. Name
+	b. Description of item
+	c. Quantity
+	d. Cost per item
+	d. Photo (optional)
+  2. Seller enters all the required information.
+  3. System stores a new record of the added items.
+  4. Systems puts these items on display for the buyers. 
+  5. Seller logs out of the system.
+
+- **Primary Postconditions:** A record of sellers additions was created. The items were also added on the buyer page so that people can start buying that item. 
+
+- **Alternate Sequence:**
+  
+  Wrong account error: If the user is not logged in from his seller account, ask him to log in through his seller account because buyers can't sell items.
+
+  
