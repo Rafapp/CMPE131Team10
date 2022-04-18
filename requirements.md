@@ -1,87 +1,72 @@
-## <remove all of the example text and notes in < > such as this one>
-
 ## Functional Requirements
 
-Login  (Mohammad)
-	Seller
-	Customer
-
-Logout (Umesh)
-
-Create new account (Rafa)
-	Seller
-	Customer
-
-View profile/account options (Rafa)
-	Delete account
-
-Cart system (Umesh)
-
-Buy item (HP if we decide to add Paypal API) (Mohammad)
-	Payment System
-
-Item search database and frontend (Rafa)
-	Search bar
-	Item database
-
-Add pictures to items(HP) (Alternatively, paypal API integration) (Umesh)
-
-User profiles (Umesh)
-
-Item rating system (Mohammad)
-
-Add items for sale (Mohammad)
-
-Loading screen / splash page (Rafa)
-
+ 1. Login
+ 2. Logout
+ 3. Signup
+ 4. Profile information page
+ 5. Cart system
+ 6. Item purchase
+ 7. Item database, and search frontend
+ 8. Item picture
+ 9. User profile
+ 10. Item rating
+ 11. Item seller
+ 12. Loading screen/splash page
 
 ## Non-functional Requirements
 
-Response time for home page under 10 seconds with a 10 mbps network
-
-Search time after input for search, must show all items with pictures under 5 seconds
-
-UI interactive interface (using bootstrap) (HP)
-
-Official support for google chrome
+ 1. Response time for home page under 10 seconds with a 10 mbps network with modern computer
+ 2. Search time after input for search, must show all items with pictures under 5 seconds with 10mbps network, and modern computer
+ 3. UI interactive interface with animations and effects using bootstrap (HP)
+ 4. Official support for google chrome
 
 
 ## Use Cases
 
-1. Item search (Mohammad)
-Precondition:
-	Click on the search bar
+ 5. Item search
+ - **Pre-condition:**
 
-Trigger:
-	Click on the search button
+ Click on the search bar
 
-Primary sequence:
-	Click on search bar
-	Enter the name of item
-	Click the search button
+ - **Trigger:**
 
-Primary postconditions:
-	See a list of available items with that name
+ Click on the search button 
 
-Alternate sequence:
-	If there are no items with the name, display that there are no items with that name.
+ - **Primary Sequence:**
 
-Use Case 2:Cart system (Mohammad)
+   1. Click on search bar
+   2. Enter the name of item 
+   3. Click the search button
 
-Precondition:
-	Be signed in to your account
+ - **Primary Postconditions:**
 
-Trigger:
-	Click add to cart/ checkout cart
+Display a list of available items with that name 
 
-Primary sequence:
-	When there's a desired item click add to cart
-	Item then gets sent to cart
-	Click view cart 
+ - **Alternate Sequence:** 
 
-Primary postconditions:
-	See a list of the items in the cart
+   If there are no items with the name, display that there are no items with that name.
 
-Alternate sequence:
-If there are no items in the cart, display that the cart is empty
 
+ 6.Cart system
+
+- **Pre-condition:**
+
+Be signed in to your account
+
+- **Trigger:**
+
+Click add to cart/ checkout cart
+
+- **Primary Sequence:**
+
+1.When there's a desired item click add to cart
+2.Item then gets sent to cart
+3.Click view cart
+
+- **Primary Postconditions:**
+
+See a list of the items in the cart
+
+- **Alternate Sequence:**
+
+If there are no items in the cart, display that the cart is empty 
