@@ -91,5 +91,53 @@
 - **Alternate Sequence:**
   
   Wrong account error: If the user is not logged in from his seller account, ask him to log in through his seller account because buyers can't sell items.
+  
+   5. Item search (Mohammad)
+ - **Pre-condition:**
+
+ Click on the search bar
+
+ - **Trigger:**
+
+ Click on the search button 
+
+ - **Primary Sequence:**
+
+   1. Click on search bar
+   2. Enter the name of item 
+   3. Click the search button
+
+ - **Primary Postconditions:**
+
+Display a list of available items with that name 
+
+ - **Alternate Sequence:** 
+
+   If there are no items with the name, display that there are no items with that name.
+
+
+ 6.Cart system (Mohammad)
+
+- **Pre-condition:**
+
+Be signed in to your account
+
+- **Trigger:**
+
+Click add to cart/ checkout cart
+
+- **Primary Sequence:**
+
+1.When there's a desired item click add to cart
+2.Item then gets sent to cart
+3.Click view cart
+
+- **Primary Postconditions:**
+
+See a list of the items in the cart
+
+- **Alternate Sequence:**
+
+If there are no items in the cart, display that the cart is empty 
 
   
