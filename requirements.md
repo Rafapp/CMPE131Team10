@@ -5,7 +5,7 @@
 3. Signup (Rafael)
 4. Profile information page, delete, info etc. (Rafael)
 5. Cart system (Umesh)
-6. Item purchase (Mohammad)
+6. Item checkout (Mohammad)
 7. Item database, and search frontend (Rafael)
 8. Item picture (Umesh)
 9. User profile button (Umesh)
