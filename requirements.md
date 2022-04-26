@@ -3,7 +3,7 @@
 1. Login (Mohammad)
 2. Logout (Umesh)
 3. Signup (Rafael)
-4. Profile information page (Rafael)
+4. Profile information page, delete, info etc. (Rafael)
 5. Cart system (Umesh)
 6. Item purchase (Mohammad)
 7. Item database, and search frontend (Rafael)
