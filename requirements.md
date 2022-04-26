@@ -8,7 +8,7 @@
 6. Item purchase (Mohammad)
 7. Item database, and search frontend (Rafael)
 8. Item picture (Umesh)
-9. User profile (Umesh)
+9. User profile button (Umesh)
 10. Item rating (Mohammad)
 11. Item seller (Mohammad)
 12. Loading screen/splash page (Rafael)
