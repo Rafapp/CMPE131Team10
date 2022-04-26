@@ -7,7 +7,7 @@
 5. Cart system (Umesh)
 6. Item checkout (Mohammad)
 7. Item database, and search frontend (Rafael)
-8. Item picture (Umesh)
+8. Item names and pictures (Umesh)
 9. User profile button (Umesh)
 10. Item rating (Mohammad)
 11. Item seller (Mohammad)
