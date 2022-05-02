@@ -1,26 +1,19 @@
-## Instructions
-
-- Delete this block before adding to your repository. 
-
-- Delete any instructions you see below they will be within < >
-  
-- This schedule should reflect the meetings from the start of the project until the end of the semester.
-
-- Write at least 1 meeting per week until the end of the semester
-
-  
 ## Meetings
 
 
 ### 2022-04-15 at 13:30
 - Umesh, Mohammad and Rafael attended the meeting
-- Updates: Team decided on all requiremenents, got contact info, and prepared first deliverable
-- Umesh: Helped decide on requirements, prepared github and cloned repo, will work on 2 of the 6 system requirements
-- Rafael: Created github repository, added teammates, created discord server, will work on 2 of the 6 system requirements
-- Mohammad: Helped decide on requirements, prepared github and cloned repo, will work on 2 of the 6 system requirements
+- Updates: Team decided on all requiremenents, got contact info, distributed work equally and prepared first deliverable
+- Umesh: Helped decide on requirements, prepared github and cloned repo, discussed the expectations from the app, will work on 2 of the 6 system requirements (use cases)
+- Rafael: Created github repository, added teammates, discussed the expectations from the app, created discord server, will work on 2 of the 6 system requirements
+- Mohammad: Helped decide on requirements, discussed the expectations from the app, prepared github and cloned repo, will work on 2 of the 6 system requirements
 - No pair programming this week.
 
 ### 2022-04-22 at 10:30
+<meeting template would go here>
+<only fill in template once you had the meeting>
+
+### 2022-04-27 at 17:30
 <meeting template would go here>
 <only fill in template once you had the meeting>
 
