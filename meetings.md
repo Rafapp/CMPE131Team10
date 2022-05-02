@@ -9,9 +9,11 @@
 - Mohammad: Helped decide on requirements, discussed the expectations from the app, prepared github and cloned repo, will work on 2 of the 6 system requirements
 - No pair programming this week.
 
-### 2022-04-22 at 10:30
-<meeting template would go here>
-<only fill in template once you had the meeting>
+### 2022-04-29 at 6:00
+- Mohammad and Rafael attended the meeting
+- Updates: Delegated work, got started with branches
+- Rafael: Helped Mohammad navigate the repository, and tested branching and merging
+- No pair programming this week.
 
 ### 2022-04-27 at 17:30
 <meeting template would go here>

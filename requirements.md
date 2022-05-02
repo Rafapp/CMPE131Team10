@@ -21,18 +21,18 @@ Mohammad_branch
  3. UI interactive interface with animations and effects using bootstrap (HP)
  4. Official support for google chrome
 
-1. Login (Mohammad)
-2. Logout (Umesh)
+1. Login (Rafael)
+2. Logout (Rafael)
 3. Signup (Rafael)
 4. Profile information page, delete, info etc. (Rafael)
-5. Cart system (Umesh)
-6. Item checkout (Mohammad)
-7. Item database, and search frontend (Rafael)
-8. Item names and pictures (Umesh)
-9. User profile button (Umesh)
-10. Item rating (Mohammad)
-11. Item seller (Mohammad)
-12. Loading screen/splash page (Rafael)
+5. Cart system (Mohammad)
+6. Item database, and search frontend (Mohammad)
+7. Item names and pictures (Mohammad)
+8. Item seller (Umesh)
+9. Loading screen/splash page (Umesh)
+10. Item rating (Umesh)
+11. Item checkout (N.A.)
+12. User profile button (N.A.)
 
 
 
