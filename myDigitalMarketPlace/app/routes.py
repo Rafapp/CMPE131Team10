@@ -9,17 +9,17 @@ def home():
 # Log in (Rafael)
 @flaskObj.route('/login')
 def login():
-    return 'log in'
+    return render_template("Login.html")
 
 # Sign up (Rafael)
 @flaskObj.route('/signup')
 def signup():
-    return render_template("signup.html")
+    return render_template("Signup.html")
 
 # Profile (Rafael)
 @flaskObj.route('/profile')
 def profile():
-    return 'profile'
+    return render_template("Profile.html")
 
 # Cart (Mohammad)
 @flaskObj.route('/cart')
