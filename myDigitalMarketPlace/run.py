@@ -1,3 +1,4 @@
-from app import flaskObj
+from app import myapp_obj
 
-flaskObj.run()
+myapp_obj.run()
+

@@ -1,0 +1,35 @@
+<html>
+ <hl>  </hl>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li> {{message}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    <head>
+        <title>Product Post </title>
+    <body>
+	
+		
+        
+        {% block content %}
+	<form action="" method="POST">
+	{{form.hidden_tag()}}
+		<p>
+			{{form.productname.label}}<br>
+			{{form.productname(size=64)}}<br>
+			{{form.productprice.label}}<br>
+			{{form.productprice(size=64)}}<br>
+			{{form.productdescription.label}}<br>
+			{{form.productdescription(size=500)
+		
+		</p>
+			<p>{{form.submit()}} </p> 
+	</form>
+{% endblock %}
+    </body>
+</html>
+
