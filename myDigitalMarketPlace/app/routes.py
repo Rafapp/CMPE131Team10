@@ -39,5 +39,5 @@ def seller():
 # Item rating (Umesh)
 @flaskObj.route('/rating')
 def rating():
-    return 'rating'
+    return render_template('RateItem.html')
 
