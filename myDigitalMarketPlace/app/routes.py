@@ -1,35 +1,123 @@
-from app import myapp_obj
 
-from flask import render_template, flash, request
+from app import myapp_obj
+from sqlalchemy.orm import Session
+from flask import render_template, flash,request, redirect
 
 from flask_wtf import FlaskForm
 
 from wtforms import FloatField,StringField, IntegerField, BooleanField, SubmitField, validators
  
 from wtforms.validators import InputRequired, DataRequired, Length
-
+from app import db
+from app.models import Product1, Cart
 
 from flask_login import current_user
 from flask_login import login_user
 from flask_login import logout_user
 from flask_login import login_required
 
+db.create_all()
 
 class PostProduct(FlaskForm):
 	productname= StringField('Product Name' ,validators= [DataRequired(), validators.Length(max=64)])
 	productprice=  FloatField('Product Price' ,  [DataRequired()])
 	productdescription= StringField('Product Description' ,validators= [DataRequired(),validators.Length(max=500)])
+	productimage = StringField('Image Link',validators = [validators.Length(max=500)])
 	submit = SubmitField('Post')
+	home = SubmitField('Home')
+	
+
+class SearchClass(FlaskForm):
+	search = SubmitField('Search')
+	searchbox = StringField("searchbox",validators = [DataRequired()])
+	
+@myapp_obj.route('/home',methods=['GET','POST'])
+def Home():
+	form=SearchClass()
+	if request.method == 'GET':
+		return render_template('hometest.html', form=form)
+	if request.method == 'POST':
+		return redirect('/search')
+#@myapp_obj.route('/search',methods=['GET','POST'])
+def Search():
+	form=PostProduct()
+	if request.method == 'GET':
+		return render_template('search.html', form=form)
+	if request.method == 'POST':
+		result = request.form['searchbox']
+		arr = result.split(' ')
+		products = Product1.query.all()
+		for i in range(0,len(Product1['productname'])):
+			#k=i.productname
+			#k.lower()
+			for j in arr:
+				#l=j.lower()
+				if(Product1.productname(i).lower()==arr[j].lower()):
+					list.append(Product1.productname(i))
+		#return redirect('/searchresult')
+		return render_template('search.html', form=form,arr=arr,list=list)
+@myapp_obj.route('/inbetween',methods=['GET','POST'])
+def inbetween():
+	form= PostProduct()
+	if request.method == 'GET':
+		submit = SubmitField('Home')
+		return render_template('inbetween.html', home=submit,form=form)
+	if request.method == 'POST':
+		return redirect('/home')
+	
+@myapp_obj.route('/search',methods=['GET','POST'])
+def searchresult():
+	form= SearchClass()
+	list = []
+	searchedphrase = Product1.query.all()
+	if form.validate_on_submit():
+	#if request.method == 'POST':
+		result = request.form['searchbox']
+		product = Product1.query.filter(Product1.productname == result).first()
+		#searchedphrase = Product1.query.filter_by(productname = result).first()
+		for i in searchedphrase:
+			if (i.productname==result):
+				
+				list.append(i.productname)
+		
+		return render_template('search.html',result=result,form=form,searchedphrase=searchedphrase,product=product,list=list)
+		#return redirect('/searchhelp')
+	return render_template('search.html',form=form,)
+	#if request.method == 'POST':
+		#return redirect('/home')
+
+@myapp_obj.route('/searchhelp',methods=['GET','POST'])
+def Searchhelp():
+	form = SearchClass()
+	
+	if form.validate_on_submit():
+		list = []
+		return redirect('/search')
+	if request.method == 'GET':
+		return render_template('searchhelp.html',list=list)
+	
+
 @myapp_obj.route('/PostProduct',methods=['GET','POST'])
 def Product():
 	form= PostProduct()
-	if request.method == 'POST' and form.validate():
-                product = Product(form.productname.data, form.productprice.data, form.productdescription.data)
-               	db_session.add(user)
-                result= 'Your item has been posted'
-                flash('Your item has been posted')
-                return render_template('ListItemForSelling.html', form=form,result=result)
-	if request.method == 'GET' and form.validate():
+	#if request.method == 'POST':
+                #product = Product1(productname=form.productname.data,productprice= form.productprice.data,productdescription= form.productdescription.data,productimage=form.productimage.data)
+               	#db.session.add(product)
+                #db.session.commit()
+                #result= 'Your item has been posted'
+                #flash(result)
+                #return redirect('/home')
+	if request.method == 'GET':
 		return render_template('ListItemForSelling.html', form=form)
-	else:
-		return render_template('ListItemForSelling.html', form=form)
+	if request.method == 'POST':
+		product = Product1(productname=form.productname.data,productprice= form.productprice.data,productdescription= form.productdescription.data,productimage=form.productimage.data)
+		db.session.add(product)
+		db.session.commit()
+		return redirect('/inbetween')
+
+
+	
+
+    	
+	#else:
+		#return render_template('ListItemForSelling.html', form=form)

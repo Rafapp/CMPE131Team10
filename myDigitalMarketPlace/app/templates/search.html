@@ -1,0 +1,22 @@
+{% extends 'hometest.html'%}
+    {% block title %}
+    Search
+    {% endblock title%}
+    <body>
+    {% block content%}
+    
+    <br/>
+    <h2>Results for {{ result }}</h2>
+      
+    {% for i in searchedphrase %}
+        {% if i.productname == result%}
+    <ul>
+        <li>Product name:{{i.productname}}</br> Product price: {{i.productprice}}</br> Product description: {{i.productdescription}}</br> Product image: <img src={{i.productimage}}>  </li>
+        
+    </ul>
+        {% endif %}
+    {% endfor %}
+    
+    {% endblock content%}
+    </body>
+    </html>
