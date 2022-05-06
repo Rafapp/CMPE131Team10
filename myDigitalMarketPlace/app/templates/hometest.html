@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<<<<<<< Updated upstream
     
 
     
@@ -33,3 +34,38 @@
 </body>
    
 </html>
+=======
+  
+ 
+  
+ 
+  
+ 
+ 
+              
+                  
+                  
+   <form method= "POST" action="{{url_for('searchresult')}}" class="d-flex">
+       {{ form.hidden_tag() }}
+       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search", name = "searchbox", value="{{ request.form['searchbox'] }}"">
+       <button class="btn btn-outline-secondary" type="submit">Search</button>
+   </form>
+              
+              
+           </div>
+       </div>   
+   </nav>
+</head> 
+ 
+ 
+{% block content %}
+ 
+{% endblock %}
+ 
+ 
+ 
+</body>
+ 
+</html>
+
+>>>>>>> Stashed changes
