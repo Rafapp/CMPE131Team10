@@ -7,7 +7,7 @@
     
     <br/>
     <h2>Results for {{ result }}</h2>
-      
+      <! iterates through the products database and displays the products that match what was searched>
     {% for i in searchedphrase %}
         {% if i.productname == result%}
     <ul>
