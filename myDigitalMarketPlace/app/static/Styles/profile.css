@@ -27,7 +27,7 @@
     margin-top: 2.5%;
   }
   .dropdown-menu-macos {
-    transform: translate(270%, 5%);
+    transform: translate(calc(50vw - 150px), 5%);
     margin: auto;
     display: grid;
     gap: .25rem;
