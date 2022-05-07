@@ -31,6 +31,10 @@ class SearchClass(FlaskForm):
    search = SubmitField('Search')
    searchbox = StringField("searchbox",validators = [DataRequired()])
 
+class AddtoCart(FlaskForm):
+	addtocart = SubmitField('Add to cart')
+   
+
 # Home page (Rafael)
 @flaskObj.route('/')
 def home():
@@ -91,6 +95,7 @@ def inbetween():
 @flaskObj.route('/search',methods=['GET','POST'])
 def searchresult():
    form= SearchClass()
+   cart= AddtoCart()
    list = []
    searchedphrase = Product1.query.all()
    if form.validate_on_submit():
@@ -103,7 +108,7 @@ def searchresult():
               
                list.append(i.productname)
       
-       return render_template('search.html',result=result,form=form,searchedphrase=searchedphrase,product=product,list=list)
+       return render_template('search.html',result=result,form=form,searchedphrase=searchedphrase,product=product,list=list,cart=cart)
        #return redirect('/searchhelp')
    return render_template('search.html',form=form,)
    #if request.method == 'POST':

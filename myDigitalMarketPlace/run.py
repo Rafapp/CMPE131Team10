@@ -1,4 +1,4 @@
-from app import myapp_obj
+from app import flaskObj
 
-myapp_obj.run()
+flaskObj.run()
 
