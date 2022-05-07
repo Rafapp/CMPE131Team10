@@ -26,4 +26,12 @@
   - Umesh: finished the rating frontend, is working on the rating backend and the splash page.
   - Rafael: finished the frontend for the first four functions, is currently working on the login database. 
 
+### 2022-05-6 at 21:30
+- Mohammad, Umesh, Rafael attended the meeting
+- Updates: We all put our codes together and made sure it worked
+  
+  - Mohammad: merged the functional requirements
+  - Umesh: merged the functional requirements
+  - Rafael: merged the functional requirements 
+
 
