@@ -26,6 +26,7 @@
     margin-right: auto;
     margin-top: 2.5%;
   }
+
   .dropdown-menu-macos {
     transform: translate(calc(50vw - 150px), 5%);
     margin: auto;
