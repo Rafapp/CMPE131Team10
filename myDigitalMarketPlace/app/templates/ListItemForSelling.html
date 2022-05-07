@@ -1,5 +1,4 @@
 <html>
-<<<<<<< Updated upstream
  <hl>Post Product </hl><br>
        
     <head>
@@ -28,31 +27,3 @@
     </body>
 
 
-=======
-<hl>Post Product </hl><br>
-     
-   <head>
-       <title>Product Post </title>
-   </head>
-   <body>
-  
-      
-      
-       {% block content %}
-   <form action="" method="POST" type="submit">
-   {{form.hidden_tag()}}
-       <p>
-           {{form.productname.label}}<br>
-           {{form.productname(size=64)}}<br>
-           {{form.productprice.label}}<br>
-           {{form.productprice(size=64)}}<br>
-           {{form.productdescription.label}}<br>
-           {{form.productdescription(size=500)}}
-           {{form.productimage.label}}<br>
-           {{form.productimage(size=500)}}<br></p>
-      
-       <p> {{form.submit()}} </p>
-   </form>
-{% endblock %}
-   </body>
->>>>>>> Stashed changes
