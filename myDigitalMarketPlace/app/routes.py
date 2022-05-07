@@ -3,7 +3,7 @@ from flask import render_template
 from sqlalchemy.orm import Session
 from flask import  flash,request, redirect
 from flask_wtf import FlaskForm
-from wtforms import FloatField,StringField, IntegerField, BooleanField, SubmitField, validators
+from wtforms import FloatField,StringField, IntegerField, BooleanField, SubmitField, validators, PasswordField, Form
 from wtforms.validators import InputRequired, DataRequired, Length
 from app import db
 from app.models import Product1, Cart
@@ -11,6 +11,7 @@ from flask_login import current_user
 from flask_login import login_user
 from flask_login import logout_user
 from flask_login import login_required
+from app import models
 db.create_all()
 
 # class for linking html to product database
@@ -21,6 +22,13 @@ class PostProduct(FlaskForm):
   productimage = StringField('Image Link',validators = [validators.Length(max=500)])
   submit = SubmitField('Post')
   home = SubmitField('Home')
+
+# Class for linking html to User database
+class LoginForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember_me = BooleanField('Remember Me')
+    submit = SubmitField('Sign In')
 
  # class for putting searches in the html
 class SearchClass(FlaskForm):
@@ -40,7 +48,11 @@ def home():
 # Log in (Rafael)
 @flaskObj.route('/login')
 def login():
-    return render_template("Login.html")
+    current_form = LoginForm()
+    if current_form.validate_on_submit():
+        flash('Login requested for user {}, remember_me={}' .format(current_form.username.data, current_form.remember_me.data))
+        return redirect('/')
+    return render_template("Login.html", title='Sign in', form=current_form)
 
 # Sign up (Rafael)
 @flaskObj.route('/signup')
@@ -120,6 +132,12 @@ def Product():
 @flaskObj.route('/seller')
 def seller():
     return 'seller'
+
+# Item seller (Umesh)
+@flaskObj.route('/deleteaccount')
+def deleteaccount():
+    models.User.query.delete()
+    return 'Account succesfully deleted'
 
 # Item rating (Umesh)
 @flaskObj.route('/rating')
