@@ -32,6 +32,9 @@ In order to close the website, press ctrl+c repeatedly
 - Flask
 - SQLalchemy
 - Jinja
+- HTML
+- JavaScript
+- CSS
 
 # Acknowledgements
 - Thank you to professor Carlos Rojas in the course CMPE131 for his guidance on this project
