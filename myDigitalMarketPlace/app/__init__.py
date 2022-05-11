@@ -7,13 +7,13 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, Length
 basedir = os.path.abspath(os.path.dirname(__file__))
-
  
 flaskObj = Flask(__name__)
  
 flaskObj.config.from_mapping(
- SECRET_KEY = 'you-will-never-guess',
- SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+    SECRET_KEY = 'you-will-never-guess',
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
 )
+
 db = SQLAlchemy(flaskObj)
 from app import routes, models
