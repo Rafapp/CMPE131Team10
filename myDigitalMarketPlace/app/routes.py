@@ -1,20 +1,17 @@
 from app import flaskObj
 from flask import render_template
-from sqlalchemy.orm import Session
 from flask import  flash,request, redirect
 from flask_wtf import FlaskForm
-from wtforms import FloatField,StringField, IntegerField, BooleanField, SubmitField, validators, PasswordField, Form
-from wtforms.validators import InputRequired, DataRequired, Length
+from wtforms import FloatField,StringField, BooleanField, SubmitField, validators, PasswordField
+from wtforms.validators import DataRequired
 from app import db
 from app.models import Product1, Cart
-from flask_login import current_user
-from flask_login import login_user
-from flask_login import logout_user
-from flask_login import login_required
 from app import models
+
+# Create the database to manage the data
 db.create_all()
 
-# class for linking html to product database
+# Class for linking html to product database
 class PostProduct(FlaskForm):
   productname= StringField('Product Name' ,validators= [DataRequired(), validators.Length(max=64)])
   productprice=  FloatField('Product Price' ,  [DataRequired()])
@@ -23,21 +20,14 @@ class PostProduct(FlaskForm):
   submit = SubmitField('Post')
   home = SubmitField('Home')
 
-# Class for linking html to User database
-class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember_me = BooleanField('Remember Me')
-    submit = SubmitField('Sign In')
-
- # class for putting searches in the html
+# Class for putting searches in the html
 class SearchClass(FlaskForm):
   search = SubmitField('Search')
   searchbox = StringField("searchbox",validators = [DataRequired()])
  
+# Class to add a product to the cart
 class AddtoCart(FlaskForm):
    addtocart = SubmitField('Add to cart')
-
 
 
 # Home page (Rafael)
