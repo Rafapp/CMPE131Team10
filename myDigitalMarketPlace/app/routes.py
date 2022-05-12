@@ -42,15 +42,16 @@ def signup():
 
 # Profile (Rafael)
 @login_required
-@flaskObj.route('/profile')
+@flaskObj.route('/profile', methods=['GET', 'POST'])
 def profile():
+    if request.method == 'POST':
+        if request.form.get('LOGOUT') == 'logout':
+            logout_user()
+            return 'Succesfully logged out, you may return to the home page'
+        elif request.form.get('DELETE') == 'delete':
+            db.session.delete(current_user)
+            return 'Succesfully deleted account, you may return to the home page'
     return render_template("Profile.html")
-
-# Deleted account (Rafael)
-@flaskObj.route('/deleteaccount')
-def deleteaccount():
-    models.User.query.delete()
-    return 'Account succesfully deleted'
 
 # Cart (Mohammad)
 @login_required
