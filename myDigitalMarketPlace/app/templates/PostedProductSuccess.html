@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+    <hl>Product has been posted </hl><br>
+    <head>
+        <title>Product has been posted </title>
+    </head>
+    <body>
+        <!--sends user to the home page after confirming that the product has been posted-->
+        {% block content %}
+        <form action="" method="POST" type="submit">
+            {{form.hidden_tag()}}
+            <p> {{form.home()}} </p>
+        </form>
+        {% endblock %}
+    </body>
+</html>
+    
