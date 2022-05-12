@@ -1,0 +1,20 @@
+{% extends 'hometest.html'%}
+    {% block title %}
+    Search
+    {% endblock title%}
+    <body>
+    {% block content%}
+    
+    <br/>
+    <h2>Results for {{ result }}</h2>
+      
+    {% for item in list %}
+    <ul>
+        <li>{{item}}    </li>
+        
+    </ul>
+    {% endfor %}
+    
+    {% endblock content%}
+    </body>
+    </html>
