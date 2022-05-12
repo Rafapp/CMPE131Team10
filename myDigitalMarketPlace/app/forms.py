@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import FloatField,StringField, SubmitField, validators
 from wtforms.validators import DataRequired
 
-# Class for linking html to product database
+# Form class for posting a product
 class PostProductForm(FlaskForm):
   productname= StringField('Product Name' ,validators= [DataRequired(), validators.Length(max=64)])
   productprice=  FloatField('Product Price' ,  [DataRequired()])
@@ -11,11 +11,17 @@ class PostProductForm(FlaskForm):
   submit = SubmitField('Post')
   home = SubmitField('Home')
 
-# Class for putting searches in the html
+# Form class for searching items in the database ( Mohammad )
 class SearchForm(FlaskForm):
   search = SubmitField('Search')
   searchbox = StringField("searchbox",validators = [DataRequired()])
  
-# Class to add a product to the cart
+# Form class to add a product to the cart ( Mohammad )
 class AddtoCartForm(FlaskForm):
    addtocart = SubmitField('Add to cart')
+  
+# Form class to manage Sign Up information ( Rafael )
+class SignUpForm():
+  email = StringField('email' ,validators= [DataRequired(), validators.Length(max=64)])
+  password = StringField('password' ,validators= [DataRequired(), validators.Length(max=64)])
+  submit = SubmitField('signup')

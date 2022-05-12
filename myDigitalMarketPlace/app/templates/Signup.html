@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<hl>Sign up</hl><br>
+   <head>
+       <title>Sign up</title>
+   </head>
+    <body>
+    <!--allows user to input details of product then post it-->      
+        {% block content %}
+        <form action="" method="POST" type="submit">
+        {{form.hidden_tag()}}
+            <p>
+                {{form.email.label}}<br>
+                {{form.email(size=64)}}<br>
+                {{form.password.label}}<br>
+                {{form.password(size=64)}}<br>
+            </p>
+        <p> {{form.submit()}} </p>
+        </form>
+        {% endblock %}
+    </body>
+</html>

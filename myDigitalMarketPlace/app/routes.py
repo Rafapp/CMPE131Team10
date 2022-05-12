@@ -1,13 +1,13 @@
 from app import models, db, flaskObj, forms
-from flask import render_template
-from flask import  flash, request, redirect
+from flask import  flash, request, redirect, render_template
+from flask_login import current_user, login_user, logout_user, login_required
 
 # Create the database to manage the data
 db.create_all()
 
-# Home page (Rafael)
+# Search page (Rafael)
 @flaskObj.route('/')
-def home():
+def Home():
     return render_template("Home.html")
 
 # Log in (Rafael)
@@ -16,11 +16,21 @@ def login():
     return render_template("Login.html")
 
 # Sign up (Rafael)
-@flaskObj.route('/signup')
+@flaskObj.route('/signup', methods = ['GET', 'POST'])
 def signup():
+    signupForm = forms.SignUpForm()
+    if request.method == 'POST' and signupForm.validate():
+        email = signupForm.email.data
+        password = signupForm.password.data
+        user = models.UserModel(email = email, password = password)
+        user.set_password(password)
+        db.session.add(user)
+        db.session.commit()
+        return "Sign up complete"
     return render_template("Signup.html")
 
 # Profile (Rafael)
+@login_required
 @flaskObj.route('/profile')
 def profile():
     return render_template("Profile.html")
@@ -32,31 +42,33 @@ def deleteaccount():
     return 'Account succesfully deleted'
 
 # Cart (Mohammad)
+@login_required
 @flaskObj.route('/cart')
 def cart():
     # Adds whatever is pressed on to the Cart database
     product_id = request.form.get('product_id')
     product= Product.query.filter_by(id=product_id).first()
     if request.method =="POST":
-        u = Cart(productname= product.productname, productprice = product.productprice, productimage=product.productimage)
+        u = models.CartModel(productname= product.productname, productprice = product.productprice, productimage = product.productimage)
         db.session.add(u)
         db.session.commit()
     return render_template('cart.html')
  
 # Post product success (Mohammad)
+@login_required
 @flaskObj.route('/postProductSuccess',methods=['GET','POST'])
 def postProductSuccess():
-    #Confirms to customer that their product has been posted then allows them to go to home
+    #Confirms to customer that their product has been posted then allows them to go to Search
     form = forms.PostProductForm()
     if request.method == 'GET':
         submit = forms.SubmitField('Home')
-        return render_template('PostedProductSuccess.html', home=submit,form=form)
+        return render_template('PostedProductSuccess.html', home = submit,form = form)
     if request.method == 'POST':
         return redirect('/')
 
 # Item gallery (Mohammad)
 @flaskObj.route('/itemgallery',methods=['GET','POST'])
-def Home():
+def Gallery():
   form = forms.SearchForm()
   if request.method == 'GET':
       return render_template('ItemGallery.html', form=form)
@@ -65,7 +77,7 @@ def Home():
 
 # Item Search (Mohammad)
 @flaskObj.route('/search',methods=['GET','POST'])
-def searchresult():
+def SearchItem():
     #When search is clicked, the searched phrase is compared to the products database to display all matches
     form = forms.SearchForm()
     cart = forms.AddtoCartForm()
@@ -85,6 +97,7 @@ def searchresult():
     return render_template('Search.html', form = form)
 
 # Post product page (Mohammad)
+@login_required
 @flaskObj.route('/PostProduct', methods=['GET','POST'])
 def Product():
   #Saves whatever is inputed into the products databse
@@ -92,17 +105,19 @@ def Product():
   if request.method == 'GET':
       return render_template('ListItemForSelling.html', form=form)
   if request.method == 'POST':
-      product = models.ProductModel(productname=form.productname.data, productprice = form.productprice.data, productdescription = form.productdescription.data, productimage = form.productimage.data)
+      product = models.ProductModel(productname = form.productname.data, productprice = form.productprice.data, productdescription = form.productdescription.data, productimage = form.productimage.data)
       db.session.add(product)
       db.session.commit()
       return redirect('/postProductSuccess')
 
 # Item seller (Umesh)
+@login_required
 @flaskObj.route('/seller')
 def seller():
     return 'seller'
 
 # Item rating (Umesh)
+@login_required
 @flaskObj.route('/rating')
 def rating():
     return render_template('RateItem.html')

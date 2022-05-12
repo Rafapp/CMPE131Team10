@@ -1,19 +1,17 @@
-from flask import Flask
+from flask import Flask, render_template
+from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 import os
-from flask_login import LoginManager
-from flask import render_template
-from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, BooleanField, SubmitField
-from wtforms.validators import DataRequired, Length
+
 basedir = os.path.abspath(os.path.dirname(__file__))
  
 flaskObj = Flask(__name__)
- 
-flaskObj.config.from_mapping(
-    SECRET_KEY = 'you-will-never-guess',
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
-)
+
+flaskObj.config.from_mapping(SECRET_KEY = '3XP4sF86N.t\$eSa', SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db'))
 
 db = SQLAlchemy(flaskObj)
-from app import routes, models
+
+login_manager = LoginManager(flaskObj)
+login_manager.login_view = 'login'
+
+
