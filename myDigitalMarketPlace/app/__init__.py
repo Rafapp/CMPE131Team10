@@ -12,6 +12,5 @@ flaskObj.config.from_mapping(SECRET_KEY = '3XP4sF86N.t\$eSa', SQLALCHEMY_DATABAS
 db = SQLAlchemy(flaskObj)
 
 login_manager = LoginManager(flaskObj)
-login_manager.login_view = 'login'
 
 

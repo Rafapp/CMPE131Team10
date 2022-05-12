@@ -41,21 +41,34 @@ def signup():
     return render_template("Signup.html", form = signupForm)
 
 # Profile (Rafael)
+@flaskObj.route('/profile')
 @login_required
-@flaskObj.route('/profile', methods=['GET', 'POST'])
 def profile():
-    if request.method == 'POST':
-        if request.form.get('LOGOUT') == 'logout':
-            logout_user()
-            return 'Succesfully logged out, you may return to the home page'
-        elif request.form.get('DELETE') == 'delete':
-            db.session.delete(current_user)
-            return 'Succesfully deleted account, you may return to the home page'
-    return render_template("Profile.html")
+    loggedUser = models.UserModel.query.filter_by(id = current_user.get_id()).first() 
+    return render_template("Profile.html", form = loggedUser)
+
+# Logout (Rafael)
+@flaskObj.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return 'Succesfully logged out, you may return to the home page'
+
+# Delete account (Rafael)
+@flaskObj.route('/deleteaccount')
+@login_required
+def deleteaccount():
+    if current_user.is_authenticated : 
+        loggedUser = models.UserModel.query.filter_by(id = current_user.get_id()).first() 
+        print('DELETING USER! : ' + str(loggedUser))
+        db.session.delete(loggedUser)
+        db.session.commit()
+        logout_user()
+    return 'Succesfully deleted account, you may return to the home page'
 
 # Cart (Mohammad)
-@login_required
 @flaskObj.route('/cart')
+@login_required
 def cart():
     # Adds whatever is pressed on to the Cart database
     product_id = request.form.get('product_id')
@@ -67,8 +80,8 @@ def cart():
     return render_template('cart.html')
  
 # Post product success (Mohammad)
-@login_required
 @flaskObj.route('/postProductSuccess',methods=['GET','POST'])
+@login_required
 def postProductSuccess():
     #Confirms to customer that their product has been posted then allows them to go to Search
     form = forms.PostProductForm()
@@ -109,8 +122,8 @@ def SearchItem():
     return render_template('Search.html', form = form)
 
 # Post product page (Mohammad)
-@login_required
 @flaskObj.route('/PostProduct', methods=['GET','POST'])
+@login_required
 def Product():
   #Saves whatever is inputed into the products databse
   form = forms.PostProductForm()
