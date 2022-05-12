@@ -143,50 +143,51 @@
   Time Period to Rate Expired: If the item got delivered to the user more than 30 days ago, the user can no longer rate the item. Display a useful message if the user tries to rate an item that he bought more than 30 days ago.  
 
 5. Item search (Mohammad)
-- **Pre-condition:**
+- **Pre-condition:** User is on the website, and on the browse item page.
 
-Click on the search bar
-
-- **Trigger:**
-
-Click on the search button 
+- **Trigger:** Click on the search button 
 
 - **Primary Sequence:**
 
-   1. Click on search bar
-   2. Enter the name of item 
+   1. Click on search box
+   2. Enter the item name you are searching for 
    3. Click the search button
+   4. A request for the item name is sent to the server
+   5. The request is received by the user's computer
+   6. Display the string results for searcheditem
+   7. Results for the searched item are displayed, along with the item name, description, price, and image
 
-- **Primary Postconditions:**
+- **Primary Postconditions:** Display a list of available items that match the searched phrase, along with their description, price, image, and an add to cart button with each item.
 
-Display a list of available items with that name 
-
-- **Alternate Sequence:** 
-
-  If there are no items with the name, display that there are no items with that name.
+- **Alternate Sequence:**  If there are no items with the name, display the string results for searcheditem, and nothing under it.
 
 
 
 6. Cart system (Mohammad)
 
-- **Pre-condition:**
+- **Pre-condition:** The user must be signed into their account, and wither on the browse items page or the cart page.
 
-Be signed in to your account
-
-- **Trigger:**
-
-Click add to cart/ checkout cart
+- **Trigger:** Click add to cart button or cart button or checkout once in cart
 
 - **Primary Sequence:**
- main
+ If add to cart button is pressed:
+1. A request for that specific item is sent to the server
+2. The request is received by the user's computer
+3. The item id is added to the cart database for that user id.
 
-1.When there's a desired item click add to cart
-2.Item then gets sent to cart
-3.Click view cart
+ If cart button is pressed:
+1. A request for the cart page is sent to the server
+2. The request is received by the user's computer
+3. The user is redirected to the cart page
+4. The users cart items are displayed along with the total price and a checkout button
 
-- **Primary Postconditions:**
+ If checkout button is pressed:
+1. A request for the checkout page is sent to the server
+2. The request is received by the user's computer
+3. The user is redirected to the checkout page
+4. The page diplays text boxes for the card holder name, card number, and security code
+5. When the user inputs their information ther press checkout
 
-See a list of the items in the cart
+- **Primary Postconditions:** User goes to a page confirming their order, then is redirected to home
 
-- **Alternate Sequence:**
-If there are no items in the cart, display that the cart is empty 
+- **Alternate Sequence:** If there are no items in the cart, display that the cart is empty 
