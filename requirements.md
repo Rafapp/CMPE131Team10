@@ -1,40 +1,17 @@
 ## Functional Requirements
 
-Mohammad_branch
- 1. Login
- 2. Logout
- 3. Signup
- 4. Profile information page
- 5. Cart system
- 6. Item purchase
- 7. Item database, and search frontend
- 8. Item picture
- 9. User profile
- 10. Item rating
- 11. Item seller
- 12. Loading screen/splash page
-
-## Non-functional Requirements
-
- 1. Response time for home page under 10 seconds with a 10 mbps network with modern computer
- 2. Search time after input for search, must show all items with pictures under 5 seconds with 10mbps network, and modern computer
- 3. UI interactive interface with animations and effects using bootstrap (HP)
- 4. Official support for google chrome
-
-1. Login (Mohammad)
-2. Logout (Umesh)
+1. Login (Rafael)
+2. Logout (Rafael)
 3. Signup (Rafael)
-4. Profile information page, delete, info etc. (Rafael)
-5. Cart system (Umesh)
-6. Item checkout (Mohammad)
-7. Item database, and search frontend (Rafael)
-8. Item names and pictures (Umesh)
-9. User profile button (Umesh)
-10. Item rating (Mohammad)
-11. Item seller (Mohammad)
-12. Loading screen/splash page (Rafael)
-
-
+4. Responsive home page (Rafael)
+5. Profile information page: Log out, Return home, Delete account (Rafael)
+6. Add items to cart, view cart (Mohammad)
+7. Search items on item database (Mohammad)
+8. Display item information and picture upon search (Mohammad)
+9. Post product in item database (Mohammad)
+10. Loading screen/splash page (Umesh)
+11. Rate a purchased item in cart (Umesh)
+12. Register as seller on seller registration page (Umesh)
 
 ## Non-functional Requirements
 
@@ -43,89 +20,74 @@ Mohammad_branch
 3. UI interactive interface with animations and effects using bootstrap (HP) (Rafael)
 4. Official support for google chrome (Umesh)
 
- main
-
-
 ## Use Cases
 
- Mohammad_branch
- 5. Item search
- - **Pre-condition:**
+1. Login (Rafael)
+- **Pre-condition:** Splash page has loaded, home page has completely loaded and user is active in the page
 
- Click on the search bar
-
- - **Trigger:**
-
- Click on the search button 
-
- - **Primary Sequence:**
-
-   1. Click on search bar
-   2. Enter the name of item 
-   3. Click the search button
-
- - **Primary Postconditions:**
-
-Display a list of available items with that name 
-
- - **Alternate Sequence:** 
-
-   If there are no items with the name, display that there are no items with that name.
-
-
- 6.Cart system
-
-- **Pre-condition:**
-
-Be signed in to your account
-
-- **Trigger:**
-
-Click add to cart/ checkout cart
-
-- **Primary Sequence:**
-
-1. Item purchase (Rafael)
-- **Pre-condition:**  User has a registered account, and is logged in
-
-- **Trigger:** User clicks the “buy item” button next to the item
+- **Trigger:** User clicks the "Log in" button in the navbar at the top of the page
 
 - **Primary Sequence:**
   
-  1. Purchase page loads
-  2. Total to pay, with taxes is displayed
-  3. Payment options are displayed (Paypal or credit/debit)
-  4. User completes the purchase 
-  5. Confirmation message appears on the site
+  1. The log-in button is clicked
+  2. A request for the login page is sent to the server
+  3. The request is received by the user's computer
+  4. The webpage loads completely
+  5. The user enters his e-mail using his keyboard and typing inside the e-mail text box
+  6. The user enters his password using his keyboard and typing inside the e-mail text box
+  7. The log in button is pressed
+  8. The information is processed by the server, and the account information matches
+  9. The user is returned to the home page and his account is considered as signed in
 
 
-- **Primary Postconditions:** Receipt is sent via email to the user, and viewed
+- **Primary Postconditions:** The user's account is considered as signed in, which enables other services of the platform like creating products, and changing account settings
 
 - **Alternate Sequence:**
-  Incomplete login: Due to inexistent account, or no login user is prompted to log in/create account before purchasing.
+  Inexistent account / wrong information: There is no match in the sign up database to the provided information, then:
+  1. Log-in error message is flashed
+  2. User types in correct information
+  3. Primary sequence is completed
 
-  Incomplete payment: Due to payment error, error message is displayed, and user redirected to the most recently active page.
-
-
-
-2. User profile (Rafael)
+2. Profile information page (Rafael)
 - **Pre-condition:** User is currently logged in with a complete account
 
-- **Trigger:** Clicking on the user profile
+- **Trigger:** User clicks the "Account information" button in the navbar
 
 - **Primary Sequence:**
-  
-  1. User profile information is displayed
-  2. If return button is pressed, user is redirected to most recently active page
-  3. If any edit button is clicked, new information can be edited and saved
+  1. The account information button is clicked
+  2. A request for the account information page is sent to the server
+  3. The request is received by the user's computer
+  4. The webpage loads completely
 
-- **Primary Postconditions:** The user was able to see his account information, and update anything required
+  If Return home button is pressed:
+  1. A request for the home page is sent to the server
+  2. The request is received by the user's computer
+  3. The home page is completely loaded
+
+  If Log out button is pressed:
+  1. The log-in status is disabled on the system, which disables other services of the platform like creating products, and changing account settings
+  2. A request for the home page is sent to the server
+  3. The request is received by the user's computer
+  4. The home page is completely loaded
+
+  If Delete account button is pressed:
+  1. The currently signed in account information is queried on the database
+  2. The database entry is deleted from the user database
+  3. The log-in status is disabled on the system, which disables other services of the platform like creating products, and changing account settings
+  4. A request for the home page is sent to the server
+  5. The request is received by the user's computer
+  6. The home page is completely loaded
+  7. "Your account was successfully deleted" message is flashed in the page
+
+- **Primary Postconditions:** 
+  Option A: The user was able to return home, and the webpage is loaded successfully
+  Option B: The user was succesful in logging out, and must sign in to activate account features
+  Option C: The account is deleted from the database for eternity
 
 - **Alternate Sequence:**
-  
-  Load error: If the profile could not be correctly loaded, error message is displayed
-  
-  Profile edit error: If information on the profile could not be edited, error message is displayed
+  If the user isn't logged in:
+  1. User is redirected to the home page
+  2. "Log in to access account information" message is flashed
 
 
 
@@ -180,8 +142,6 @@ Click add to cart/ checkout cart
 
   Time Period to Rate Expired: If the item got delivered to the user more than 30 days ago, the user can no longer rate the item. Display a useful message if the user tries to rate an item that he bought more than 30 days ago.  
 
-
-
 5. Item search (Mohammad)
 - **Pre-condition:**
 
@@ -207,7 +167,7 @@ Display a list of available items with that name
 
 
 
-6.Cart system (Mohammad)
+6. Cart system (Mohammad)
 
 - **Pre-condition:**
 
@@ -229,9 +189,4 @@ Click add to cart/ checkout cart
 See a list of the items in the cart
 
 - **Alternate Sequence:**
-
- Mohammad_branch
 If there are no items in the cart, display that the cart is empty 
-
-If there are no items in the cart, display that the cart is empty
- main

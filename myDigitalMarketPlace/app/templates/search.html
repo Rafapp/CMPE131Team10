@@ -1,25 +1,31 @@
-{% extends 'hometest.html'%}
+{% extends 'itemgallery.html'%}
     {% block title %}
-    Search
+        Search
     {% endblock title%}
-    <body>
-    {% block content%}
-    
+<body>
+{% block content%}
+
     <br/>
+
     <h2>Results for {{ result }}</h2>
-      <! iterates through the products database and displays the products that match what was searched>
+
+    <!--iterates through the products database and displays the products that match what was searched-->
     {% for i in searchedphrase %}
         {% if i.productname == result%}
     <ul>
-        <li>Product name:{{i.productname}}</br> Product price: {{i.productprice}}</br> Product description: {{i.productdescription}}</br> Product image:<br/> <img src={{i.productimage}} width="400" 
-            height="500" </br> <form action="{{url_for('cart')}}" method="post">
-                <input type="hidden" name="product_id" value="{{product.id}}">
-                <button type="submit" class="btn btn-sm btn-warning">Add to Cart</button>   </li>
-        
+        <li> 
+            Product name:{{i.productname}}</br> Product price: {{i.productprice}}</br> Product description: {{i.productdescription}}
+            </br>Product image:<br/> 
+            <img alt = "image"src={{i.productimage}} width="400" height="500">
+            </br> 
+            <form action="{{url_for('cart')}}" method="post">
+            <input type="hidden" name="product_id" value="{{product.id}}">
+            <button type="submit" class="btn btn-sm btn-warning">Add to Cart</button>
+        </li>
     </ul>
         {% endif %}
     {% endfor %}
-    
-    {% endblock content%}
-    </body>
-    </html>
+
+{% endblock content%}
+</body>
+</html>

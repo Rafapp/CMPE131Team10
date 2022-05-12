@@ -1,29 +1,28 @@
-<html>
- <hl>Post Product </hl><br>
-       
-    <head>
-        <title>Product Post </title>
-    </head>
-    <body>
-	
-		
-        <! allows user to input details of product then post it>
-        {% block content %}
-	<form action="" method="POST" type="submit">
-	{{form.hidden_tag()}}
-		<p>
-			{{form.productname.label}}<br>
-			{{form.productname(size=64)}}<br>
-			{{form.productprice.label}}<br>
-			{{form.productprice(size=64)}}<br>
-			{{form.productdescription.label}}<br>
-			{{form.productdescription(size=500)}}
-			{{form.productimage.label}}<br>
-			{{form.productimage(size=500)}}<br></p>
-		
-		<p>	{{form.submit()}} </p> 
-	</form>
+<!DOCTYPE html>
+<hl>Post Product </hl><br>
+     
+   <head>
+       <title>Product Post </title>
+   </head>
+   <body>
+  
+      
+<!--allows user to input details of product then post it-->      
+       {% block content %}
+   <form action="" method="POST" type="submit">
+   {{form.hidden_tag()}}
+       <p>
+           {{form.productname.label}}<br>
+           {{form.productname(size=64)}}<br>
+           {{form.productprice.label}}<br>
+           {{form.productprice(size=64)}}<br>
+           {{form.productdescription.label}}<br>
+           {{form.productdescription(size=500)}}
+           {{form.productimage.label}}<br>
+           {{form.productimage(size=500)}}<br></p>
+      
+       <p> {{form.submit()}} </p>
+   </form>
 {% endblock %}
-    </body>
-
-
+   </body>
+</html>
