@@ -22,12 +22,12 @@ def signup():
     if request.method == 'POST' and signupForm.validate():
         email = signupForm.email.data
         password = signupForm.password.data
-        user = models.UserModel(email = email, password = password)
+        user = models.UserModel(email = email, password_hash = password)
         user.set_password(password)
         db.session.add(user)
         db.session.commit()
-        return "Sign up complete"
-    return render_template("Signup.html")
+        return 
+    return render_template("Signup.html", form = signupForm)
 
 # Profile (Rafael)
 @login_required

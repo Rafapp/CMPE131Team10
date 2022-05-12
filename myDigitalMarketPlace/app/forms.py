@@ -21,7 +21,7 @@ class AddtoCartForm(FlaskForm):
    addtocart = SubmitField('Add to cart')
   
 # Form class to manage Sign Up information ( Rafael )
-class SignUpForm():
+class SignUpForm(FlaskForm):
   email = StringField('email' ,validators= [DataRequired(), validators.Length(max=64)])
   password = StringField('password' ,validators= [DataRequired(), validators.Length(max=64)])
   submit = SubmitField('signup')
