@@ -11,9 +11,20 @@ def Home():
     return render_template("Home.html")
 
 # Log in (Rafael)
-@flaskObj.route('/login')
+@flaskObj.route('/login', methods = ['GET', 'POST'])
 def login():
-    return render_template("Login.html")
+    loginForm = forms.LoginForm()
+    email = loginForm.email.data
+    password = loginForm.password.data
+    if loginForm.validate():
+        # We try to find a matching email and password in the database
+        user = models.UserModel.query.filter_by(email = str(email)).first()
+        if not user or not models.UserModel.check_password(user, password):
+            flash('Your password was incorrect, or the account does not exist. Please try again.')
+            return redirect('/login')
+        login_user(user)
+        return 'Logged in successfully, you may return to the home page'
+    return render_template("Login.html", form = loginForm)
 
 # Sign up (Rafael)
 @flaskObj.route('/signup', methods = ['GET', 'POST'])
@@ -26,7 +37,7 @@ def signup():
         user.set_password(password)
         db.session.add(user)
         db.session.commit()
-        return 
+        return 'Created account succesfully! Please log in :)'
     return render_template("Signup.html", form = signupForm)
 
 # Profile (Rafael)

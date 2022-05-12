@@ -24,4 +24,10 @@ class AddtoCartForm(FlaskForm):
 class SignUpForm(FlaskForm):
   email = StringField('email' ,validators= [DataRequired(), validators.Length(max=64)])
   password = StringField('password' ,validators= [DataRequired(), validators.Length(max=64)])
-  submit = SubmitField('signup')
+  submit = SubmitField('Sign Up')
+
+# Form class to manage Log In information ( Rafael )
+class LoginForm(FlaskForm):
+  email = StringField('email' ,validators= [DataRequired(), validators.Length(max=64)])
+  password = StringField('password' ,validators= [DataRequired(), validators.Length(max=64)])
+  submit = SubmitField('Log In')
