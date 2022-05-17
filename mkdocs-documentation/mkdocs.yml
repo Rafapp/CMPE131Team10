@@ -1,0 +1,7 @@
+site_name: Digital Market Place Project
+site_url: https://mydigitalmarketplaceproject.com/
+
+nav:
+    - Home: index.md
+
+theme: readthedocs
