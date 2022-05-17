@@ -5,19 +5,31 @@
     <link rel="stylesheet" href="static/Styles/Ratingnew.css" />
   </head>
   <body>
-    <h1 color="blue"> Please rate our app on a scale form 1 to 5.</h1>
+    <h1> Please rate our app on a scale form 1 to 5.</h1>
+
+    <form action="/rating" method="POST" type="submit">
+      {{ form.hidden_tag() }}
+      <p>
+          {{form.ratingNew.label}}<br>
+          {{form.ratingNew(size=32)}}<br>
+      </p>
+  <p> {{form.submit()}} </p>
+  </form>
+
+<h1>Look at the Emojis below to get an idea of what each number represents.</h1>
+
 <div class="container">
   <div class="feedback">
     <div class="rating">
-      <input type="radio" name="rating" id="rating-5">
+      <input type="radio" name="rating" id="rating-5" value="option1">
       <label for="rating-5"></label>
-      <input type="radio" name="rating" id="rating-4">
+      <input type="radio" name="rating" id="rating-4" value="option2">
       <label for="rating-4"></label>
-      <input type="radio" name="rating" id="rating-3">
+      <input type="radio" name="rating" id="rating-3" value="option3">
       <label for="rating-3"></label>
-      <input type="radio" name="rating" id="rating-2">
+      <input type="radio" name="rating" id="rating-2" value="option4">
       <label for="rating-2"></label>
-      <input type="radio" name="rating" id="rating-1">
+      <input type="radio" name="rating" id="rating-1" value="option5">
       <label for="rating-1"></label>
       <div class="emoji-wrapper">
         <div class="emoji">
@@ -109,6 +121,6 @@
   </div>
 </div>
 </div>
-<h1 color="blue">We appreciate your feedback.</h1>
+<h1>We appreciate your feedback.</h1>
 </body>
 </html>
