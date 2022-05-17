@@ -18,9 +18,16 @@
             </br>Product image:<br/> 
             <img alt = "image"src={{i.productimage}} width="400" height="500">
             </br> 
-            <form action="{{url_for('cart')}}" method="post">
-            <input type="hidden" name="product_id" value="{{product.id}}">
-            <button type="submit" class="btn btn-sm btn-warning">Add to Cart</button>
+            <form method= "POST" action="{{url_for('cart')}}" class="d-flex">
+                {{cart.hidden_tag() }}
+                <input type="hidden" name="userid2" value="{{current_user.id}}">
+                <input type="hidden" name="itemid2" value="{{i.id}}">
+                <input type="hidden" name="itemname2" value={{i.productname}}>
+                <input type="hidden" name="itemprice2" value={{i.productprice}}>
+                <input type="hidden" name="itemdescription2" value={{i.productdescription}}>
+                <input type="hidden" name="itemimage2" value={{i.producimage}}>
+                <input type="submit" class="shadow-lg p-2 mb-0 bg-body rounded btn btn-outline-light" value="Add to Cart" name='addtocartform'/>
+                </form>
         </li>
     </ul>
         {% endif %}

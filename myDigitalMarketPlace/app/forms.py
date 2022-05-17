@@ -15,7 +15,13 @@ class PostProductForm(FlaskForm):
 class SearchForm(FlaskForm):
   search = SubmitField('Search')
   searchbox = StringField("searchbox",validators = [DataRequired()])
- 
+
+class CheckoutForm(FlaskForm):
+  cardnumber= StringField("Card Number",validators= [DataRequired(), validators.Length(min=12,max=12)])
+  expirationdate= StringField("Expiration Date",validators= [DataRequired(), validators.Length(min=5,max=5)])
+  securitycode = StringField("Security Code",validators= [DataRequired(), validators.Length(min=3,max=3)])
+  checkout = SubmitField('Place Order')
+
 # Form class to add a product to the cart ( Mohammad )
 class AddtoCartForm(FlaskForm):
    addtocart = SubmitField('Add to cart')
