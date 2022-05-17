@@ -182,8 +182,13 @@ def seller():
     return 'seller'
 
 # Item rating (Umesh)
-@login_required
-@flaskObj.route('/rating')
+@flaskObj.route('/rating', methods = ['GET', 'POST'])
 def rating():
-    return render_template('RateItem.html')
-
+    ratingform = forms.RatingForm()
+    ratingNew = ratingform.ratingNew.data
+    if request.method == 'POST' and ratingform.validate():
+        rate=models.RateModel(rating=ratingNew)
+        db.session.add(rate)
+        db.session.commit()
+        return "Your feedback has been recorded. Thank You for your feedback. You may close this tab now."
+    return render_template('RateItem.html',form=ratingform)

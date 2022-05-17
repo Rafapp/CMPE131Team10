@@ -37,3 +37,8 @@ class LoginForm(FlaskForm):
   email = StringField('email' ,validators= [DataRequired(), validators.Length(max=64)])
   password = StringField('password' ,validators= [DataRequired(), validators.Length(max=64)])
   submit = SubmitField('Log In')
+
+# Form to get the rating from the user.
+class RatingForm(FlaskForm):
+  ratingNew = StringField('Rate on a scale of 1 to 5 in this textbox', validators= [DataRequired(), validators.Length(max=64)])
+  submit = SubmitField('Rate')

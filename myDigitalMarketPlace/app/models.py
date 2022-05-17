@@ -49,3 +49,10 @@ class UserModel(UserMixin, db.Model):
 def load_user(id):
    return UserModel.query.get(int(id))
 
+# Model used for Rating (Umesh)
+class RateModel(UserMixin, db.Model):
+  id = db.Column(db.Integer, primary_key = True)
+  rating = db.Column(db.Integer)
+
+  def __repr__(self):
+      return f'<Rating: {self.rating}>'
