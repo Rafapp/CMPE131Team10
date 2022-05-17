@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+{% block title %}
+        Cart
+{% endblock title%}
+
+{% for i in current %}
+    {% if i.userid == current_user.id %}
+<ul>
+    <li>
+        Product name:{{i.productname}}</br> Product price: {{i.productprice}}</br> Product description: {{i.productdescription}} </br> Product image: <img alt = "image"src={{i.productimage}} width="400" height="500">
+        
+    </li>
+</ul>
+    {% endif %}
+{% endfor %}
+<form action="" method="POST" >
+<input type="submit" class="shadow-lg p-2 mb-0 bg-body rounded btn btn-outline-light" value="Checkout" name='checkout'/>
+</form>
+</html>
+
+

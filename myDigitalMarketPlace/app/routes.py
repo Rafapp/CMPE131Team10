@@ -67,17 +67,55 @@ def deleteaccount():
     return 'Succesfully deleted account, you may return to the home page'
 
 # Cart (Mohammad)
-@flaskObj.route('/cart')
+@flaskObj.route('/cart',methods=['GET','POST'])
 @login_required
 def cart():
+    cart =forms.AddtoCartForm()
     # Adds whatever is pressed on to the Cart database
-    product_id = request.form.get('product_id')
-    product= Product.query.filter_by(id=product_id).first()
-    if request.method =="POST":
-        u = models.CartModel(productname= product.productname, productprice = product.productprice, productimage = product.productimage)
-        db.session.add(u)
+    if cart.validate_on_submit():
+        userid = request.form.get('userid2')
+        itemid = request.form.get('itemid2')
+        itemname = request.form.get('itemname2')
+        itemprice = request.form.get('itemprice2')
+        itemdescription = request.form.get('itemdescription2')
+        itemimage = request.form.get('itemimage2')
+        
+        cartitem = models.CartModel(userid=userid, productname=itemname,productprice=itemprice,productdescription=itemdescription,productimage=itemimage )
+        #cartitem = models.CartModel(userid=userid2,itemid=itemid2)
+        db.session.add(cartitem)
+       
         db.session.commit()
-    return render_template('cart.html')
+        print('Item added')
+
+    return redirect('/')
+
+@flaskObj.route('/usercart',methods=['GET','POST'])
+def usercart():
+    total =0
+    current=models.CartModel.query.all()
+    currentid=current_user.get_id()
+    if request.method == 'POST':
+        return redirect('/checkout')
+    
+    return render_template('usercart.html',current=current,currentid=currentid)
+
+@flaskObj.route('/checkout',methods=['GET','POST'])
+def checkout():
+    form = forms.CheckoutForm()
+    if form.validate_on_submit():
+        return redirect('/Placed')
+    return render_template('checkout.html',form=form)
+
+@flaskObj.route('/Placed',methods=['GET','POST'])
+@login_required
+def Placed():
+    #Confirms to customer that their product has been posted then allows them to go to Search
+    form = forms.PostProductForm()
+    if request.method == 'GET':
+        submit = forms.SubmitField('Home')
+        return render_template('Placed.html', home = submit,form = form)
+    if request.method == 'POST':
+        return redirect('/')
  
 # Post product success (Mohammad)
 @flaskObj.route('/postProductSuccess',methods=['GET','POST'])
@@ -101,13 +139,15 @@ def Gallery():
       return redirect('/search')
 
 # Item Search (Mohammad)
-@flaskObj.route('/search',methods=['GET','POST'])
+@flaskObj.route('/search',methods=['POST'])
 def SearchItem():
     #When search is clicked, the searched phrase is compared to the products database to display all matches
     form = forms.SearchForm()
     cart = forms.AddtoCartForm()
     productList = []
     searchedphrase = models.ProductModel.query.all()
+
+    #if request.method == 'POST':
 
     if form.validate_on_submit():
         result = request.form['searchbox']
@@ -117,9 +157,9 @@ def SearchItem():
         if (i.productname == result):
             productList.append(i.productname)
 
-        return render_template('Search.html', result=result,form=form, searchedphrase=searchedphrase, product=product, productList=productList, cart=cart)
+    
+    return render_template('Search.html', result=result,form=form, searchedphrase=searchedphrase, product=product, productList=productList, cart=cart)
 
-    return render_template('Search.html', form = form)
 
 # Post product page (Mohammad)
 @flaskObj.route('/PostProduct', methods=['GET','POST'])

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<hl>Checkout </hl><br>
+     
+   <head>
+       <title>Checkout </title>
+   </head>
+   <body>
+{% block content %}
+   <form action="" method="POST" type="submit">
+   {{form.hidden_tag()}}
+       <p>
+           {{form.cardnumber.label}}<br>
+           {{form.cardnumber(size=12)}}<br>
+           {{form.expirationdate.label}}<br>
+           {{form.expirationdate(size=5)}}<br>
+           {{form.securitycode.label}}<br>
+           {{form.securitycode(size=3)}}
+           </p>
+      
+       <p> {{form.checkout()}} </p>
+   </form>
+   {% endblock %}
+</body>
+</html>
