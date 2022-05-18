@@ -23,7 +23,7 @@ def login():
             flash('Your password was incorrect, or the account does not exist. Please try again.')
             return redirect('/login')
         login_user(user)
-        return 'Logged in successfully, you may return to the home page'
+        return '<a href="/">Login complete! Return home</a>'
     return render_template("Login.html", form = loginForm)
 
 # Sign up (Rafael)
@@ -37,7 +37,7 @@ def signup():
         user.set_password(password)
         db.session.add(user)
         db.session.commit()
-        return 'Created account succesfully! Please log in :)'
+        return '<a href="/">Signup complete! Return home</a>'
     return render_template("Signup.html", form = signupForm)
 
 # Profile (Rafael)
@@ -52,7 +52,7 @@ def profile():
 @login_required
 def logout():
     logout_user()
-    return 'Succesfully logged out, you may return to the home page'
+    return '<a href="/">Logout complete, Return Home</a>'
 
 # Delete account (Rafael)
 @flaskObj.route('/deleteaccount')
@@ -64,7 +64,7 @@ def deleteaccount():
         db.session.delete(loggedUser)
         db.session.commit()
         logout_user()
-    return 'Succesfully deleted account, you may return to the home page'
+    return '<a href="/">Account deleted, Return home</a>'
 
 # Cart (Mohammad)
 @flaskObj.route('/cart',methods=['GET','POST'])
