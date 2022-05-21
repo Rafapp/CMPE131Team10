@@ -49,3 +49,8 @@ class ChangePasswordForm(FlaskForm):
   password = StringField('Enter the old password' ,validators= [DataRequired(), validators.Length(max=64)])
   newPassword = StringField('Enter the new password' ,validators= [DataRequired(), validators.Length(max=64)])
   submit = SubmitField('Change Password')
+
+# Form class to delete an item form the cart ( Umesh )
+class DeleteItemFromCartForm(FlaskForm):
+  productname= StringField('Product Name' ,validators= [DataRequired(), validators.Length(max=64)])
+  submit = SubmitField('Remove this product')
