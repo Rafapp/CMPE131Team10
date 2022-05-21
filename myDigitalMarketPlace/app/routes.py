@@ -175,11 +175,24 @@ def Product():
       db.session.commit()
       return redirect('/postProductSuccess')
 
-# Item seller (Umesh)
+# Change Password (Umesh)
 @login_required
-@flaskObj.route('/seller')
-def seller():
-    return 'seller'
+@flaskObj.route('/ChangePassword', methods = ['GET', 'POST'])
+def changePassword():
+    ChangePasswordForm = forms.ChangePasswordForm()
+    email = ChangePasswordForm.email.data
+    password = ChangePasswordForm.password.data
+    newPassword = ChangePasswordForm.newPassword.data
+    if ChangePasswordForm.validate():
+        # We try to find a matching email and password in the database
+        user = models.UserModel.query.filter_by(email = str(email)).first()
+        if not user or not models.UserModel.check_password(user, password):
+            flash('Your email or password was incorrect. Please try again.')
+            return redirect('/ChangePassword')
+        user.set_password(newPassword)
+        db.session.commit()
+        return '<a href="/">Changed Password! Return home</a>'
+    return render_template("ChangePassword.html", form = ChangePasswordForm)
 
 # Item rating (Umesh)
 @flaskObj.route('/rating', methods = ['GET', 'POST'])

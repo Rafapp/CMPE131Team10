@@ -38,7 +38,14 @@ class LoginForm(FlaskForm):
   password = StringField('password' ,validators= [DataRequired(), validators.Length(max=64)])
   submit = SubmitField('Log In')
 
-# Form to get the rating from the user.
+# Form class to get the rating from the user ( Umesh )
 class RatingForm(FlaskForm):
   ratingNew = StringField('Rate on a scale of 1 to 5 in this textbox', validators= [DataRequired(), validators.Length(max=64)])
   submit = SubmitField('Rate')
+
+# Form class to change password ( Umesh )
+class ChangePasswordForm(FlaskForm):
+  email = StringField('Enter the email' ,validators= [DataRequired(), validators.Length(max=64)])
+  password = StringField('Enter the old password' ,validators= [DataRequired(), validators.Length(max=64)])
+  newPassword = StringField('Enter the new password' ,validators= [DataRequired(), validators.Length(max=64)])
+  submit = SubmitField('Change Password')
