@@ -1,3 +1,4 @@
+from itertools import product
 from app import models, db, flaskObj, forms
 from flask import  flash, request, redirect, render_template
 from flask_login import current_user, login_user, logout_user, login_required
@@ -200,8 +201,24 @@ def rating():
     ratingform = forms.RatingForm()
     ratingNew = ratingform.ratingNew.data
     if request.method == 'POST' and ratingform.validate():
-        rate=models.RateModel(rating=ratingNew)
+        rate = models.RateModel(rating = ratingNew)
         db.session.add(rate)
         db.session.commit()
         return "Your feedback has been recorded. Thank You for your feedback. You may close this tab now."
     return render_template('RateItem.html',form=ratingform)
+
+# Delete item from cart (Umesh)
+@login_required
+@flaskObj.route('/DeleteItemFromCart', methods = ['GET', 'POST'])
+def deleteItemFromCart():
+    deleteItemFromCartform = forms.DeleteItemFromCartForm()
+    productname = deleteItemFromCartform.productname.data
+    if request.method == 'POST' and deleteItemFromCartform.validate():
+        product = models.CartModel.query.filter_by(productname = str(productname)).first()
+        if not product:
+            flash('This product is not in the cart. Please try again.')
+            return redirect('/DeleteItemFromCart')
+        db.session.delete(product)
+        db.session.commit()
+        return '<a href="/">Item deleted from cart. Return to home to continue shopping</a>'
+    return render_template('DeleteItemFromCart.html' , form = deleteItemFromCartform)

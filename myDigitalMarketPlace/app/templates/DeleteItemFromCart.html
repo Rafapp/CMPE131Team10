@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<hl>Delete Item From The Cart</hl><br>
+   <head>
+       <title>Delete Item From The Cart</title>
+   </head>
+    <body>
+    <!--Item not found in cart error message-->>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="notification is-danger">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+    {% endwith %}
+    <!--allows user to input the name of the product-->      
+        {% block content %}
+        <form action="" method="POST" type="submit">
+            {{ form.hidden_tag() }}
+            <p>
+                {{form.productname.label}}<br>
+                {{form.productname(size=64)}}<br>
+            </p>
+        <p> {{form.submit()}} </p>
+        </form>
+        {% endblock %}
+    </body>
+</html>
