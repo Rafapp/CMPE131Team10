@@ -10,8 +10,9 @@
 8. Display item information and picture upon search (Mohammad)
 9. Post product in item database (Mohammad)
 10. Loading screen/splash page (Umesh)
-11. Rate a purchased item in cart (Umesh)
-12. Register as seller on seller registration page (Umesh)
+11. Rate our app (Umesh)
+12. Change password (Umesh)
+13. Delete an item from the cart (Umesh)
 
 ## Non-functional Requirements
 
