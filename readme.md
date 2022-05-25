@@ -15,7 +15,7 @@ With this webpage application, we created a complete digital marketplace with th
 # Installation
 - Install the Virtual Environment for this project: 
     - Type this command in the terminal (windows) to install the correct versions of all required libraries: 
-        - "py -m pip install -r VirtualEnvironmentRequirements.txt"
+        - py -m pip install -r VirtualEnvironmentRequirements.txt
 - Cloning the repository: `git clone https://github.com/Rafapp/CMPE131Team10`
 - Python:
 The latest version of python should be installed, you can visit https://www.python.org/ to download it
