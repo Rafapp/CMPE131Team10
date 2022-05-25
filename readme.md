@@ -13,12 +13,12 @@ With this webpage application, we created a complete digital marketplace with th
 - A homepage and splashpage with modern UI/UX design
 
 # Installation
+- Install the Virtual Environment for this project: 
+    - Type this command in the terminal (windows) to install the correct versions of all required libraries: 
+        - "py -m pip install -r VirtualEnvironmentRequirements.txt"
 - Cloning the repository: `git clone https://github.com/Rafapp/CMPE131Team10`
 - Python:
 The latest version of python should be installed, you can visit https://www.python.org/ to download it
-- Libraries: 
-    - Flask: `$ pip install flask`
-    - SQLalchemy: `$ pip install SQLalchemy`
 
 # How to run the webapp
 - In the command line, inside the app folder of the project:
