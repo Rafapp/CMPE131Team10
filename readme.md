@@ -22,7 +22,7 @@ The latest version of python should be installed, you can visit https://www.pyth
 
 # How to run the webapp
 - In the command line, inside the app folder of the project:
-`C:\User\CMPE131Team10\myDigitalMarketPlace> run.py`
+`C:\User\CMPE131Team10\myDigitalMarketPlace> python run.py`
 This will prompt the flask server to run, and the website will be viewable in google chrome by using the following link in the navigation bar:
 `http://127.0.0.1:5000`
 In order to close the website, press ctrl+c repeatedly
